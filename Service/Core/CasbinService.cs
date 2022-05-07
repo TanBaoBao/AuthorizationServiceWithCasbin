@@ -27,7 +27,7 @@ namespace Service.Core
         public CasbinService(IConfiguration configuration)
         {
             var options = new DbContextOptionsBuilder<CasbinDbContext<int>>()
-                .UseSqlServer(configuration["AppDatabaseSettings:ConnectionString"])
+                .UseNpgsql(configuration["AppDatabaseSettings:ConnectionString"])
                 .Options;
             var dbContext = new CasbinDbContext<int>(options);
             dbContext.Database.EnsureCreated();
